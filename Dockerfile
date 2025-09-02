@@ -1,10 +1,12 @@
-FROM busybox:latest
-COPY . /example
+FROM busybox:1.36
+
+RUN adduser -D -H -s /bin/sh example
+
 WORKDIR /example
 
-RUN adduser -DHs /bin/bash example
-RUN chown example *
-RUN chmod a+x *
-USER example
+COPY --chown=example:example --chmod=755 hunt.sh /example/hunt.sh
 
+RUN sed -i 's/\r$//' /example/hunt.sh
+
+USER example
 CMD ["/example/hunt.sh"]
