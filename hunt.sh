@@ -2,7 +2,7 @@
 
 printf "Thanks for running the Docker in Action Chapter 3 scavenger hunt.\nEnter the password: "
 read pass
-secret=5a9854360fc3ffe8043ef37fa2d7d507dcf7fafc
+secret=dafc04a67971a7dab102d25c8b8d889979119d56
 
 if `echo $pass | sha1sum | grep -q $secret`; then
     echo "Congratulations! You've found the password using Docker Hub and used an interactive container!" 
